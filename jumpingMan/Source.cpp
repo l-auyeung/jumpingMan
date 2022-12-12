@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Platform.h"
 
+
 using namespace sf;
 static const float VIEW_HEIGHT = 512.0f;
 
@@ -47,9 +48,11 @@ int main()
 		//update stuff here
 		player.Update(deltaTime);
 
+		Collider pCol = player.GetCollider();
+
 		//check collision
-		platform1.GetCollider().CheckCollision(player.GetCollider(), 0.0f); //CheckCollision recieves collider& and float
-		platform2.GetCollider().CheckCollision(player.GetCollider(), 1.0f);
+		platform1.GetCollider().CheckCollision(pCol, 0.8f); //CheckCollision recieves collider& and float
+		platform2.GetCollider().CheckCollision(pCol, 1.0f);
 
 		view.setCenter(player.GetPosition()); //after updating player so player moves, then the view moves
 

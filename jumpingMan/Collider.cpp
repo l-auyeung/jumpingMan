@@ -14,7 +14,7 @@ bool Collider::CheckCollision(Collider& other, float push) //we give it somethin
 	float intersectX = abs(deltaX) - (otherHalfSize.x + thisHalfSize.x);
 	float intersectY = abs(deltaY) - (otherHalfSize.y + thisHalfSize.y);
 	//COME BACK THIS IF STATEMENT NEEDS TO BE MODIFIED, WE CAN RENAME THIS TO JUMP
-	if (intersectX < 0.0f && intersectY < 0.0f)//we can change this to just Y
+	if (intersectX < 0.0f && intersectY < 0.0f)//we can change this to just Y and this is saying if it intersects
 	{
 		push = min(max(push, 0.0f), 1.0f); // I think push 1.0 is unmovable whereas 0 is very movable
 		//don't need this for Y
