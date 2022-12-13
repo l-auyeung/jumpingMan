@@ -10,7 +10,7 @@ public:
 
 	void Move(float dx, float dy) { body.move(dx, dy); };
 
-	bool CheckCollision(Collider& other, float push); //push decides how much each object needs to be pushed away 1 means other one movs
+	bool CheckCollision(Collider& other,Vector2f& direction, float push); //push decides how much each object needs to be pushed away 1 means other one movs
 	Vector2f GetPosition() { return body.getPosition(); }
 	Vector2f GetHalfSize() { return body.getSize() / 2.0f; }
 private:

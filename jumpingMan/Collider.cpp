@@ -1,8 +1,9 @@
 #include "Collider.h"
+
 //I'm planning on changing this and editting to be jump so it's just for the Y
 Collider::Collider(RectangleShape& body) : body(body) {}
 Collider::~Collider() {}
-bool Collider::CheckCollision(Collider& other, float push) //we give it something of the same class and a "push" aka how hard it is to move the opbject
+bool Collider::CheckCollision(Collider& other,Vector2f& direction, float push) //we give it something of the same class and a "push" aka how hard it is to move the opbject
 {//it's kinda neat... but it also accounts for x collision and we don't need that, ill edit it
 	Vector2f otherPosition = other.GetPosition();
 	Vector2f otherHalfSize = other.GetHalfSize();
@@ -20,28 +21,40 @@ bool Collider::CheckCollision(Collider& other, float push) //we give it somethin
 		//don't need this for Y
 		if (intersectX > intersectY)
 		{
-			if (deltaX > 0.0f)
+			if (deltaX > 0.0f) //we're going right
 			{
 				Move(intersectX * (1.0f - push), 0.0f);
 				other.Move(-intersectX * push, 0.0f); //this makes the other one go in the opposite direction
+
+				direction.x = 1.0f;
+				direction.y = 0.0f;
 			}
-			else
+			else //going left
 			{
 				Move(-intersectX * (1.0f - push), 0.0f);
 				other.Move(intersectX * push, 0.0f);
+
+				direction.x = -1.0f;
+				direction.y = 0.0f;
 			}
 		}
 		else
 		{
-			if (deltaY > 0.0f)
+			if (deltaY > 0.0f) //THIS IMPORTANT going DOWN 
 			{
 				Move(0.0f, intersectY * (1.0f - push));
 				other.Move(0.0f, -intersectY * push); //this makes the other one go in the opposite direction
+
+				direction.x = 0.0f;
+				direction.y = 1.0f;
 			}
 			else
 			{
 				Move(0.0f, -intersectY * (1.0f - push));
 				other.Move(0.0f, intersectY * push);
+
+				direction.x = 0.0f;
+				direction.y = -1.0f;
 			}
 		}
 		return true;
