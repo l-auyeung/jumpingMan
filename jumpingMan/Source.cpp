@@ -26,8 +26,9 @@ int main()
 	//creating platforms (texture, dimentions, position_
 
 	//replace nullptr with PLATFROM_TEXTURE when we put a texture in 
-	Platform platform1(nullptr, Vector2f(400.0f, 200.0f), Vector2f(500.0f, 200.0f)); //nullptr is to make it a solid white color, replace it with a texture 
-	Platform platform2(nullptr, Vector2f(400.0f, 200.0f), Vector2f(500.0f, 0.0f));
+	//spirte, size, position
+	Platform platform1(nullptr, Vector2f(200.0f, 10.0f), Vector2f(500.0f, 140.0f)); //nullptr is to make it a solid white color, replace it with a texture 
+	Platform platform2(nullptr, Vector2f(200.0f, 10.0f), Vector2f(300.0f, 300.0f));
 	//ground, replace nullptr with GROUND_TEXTURE
 	Platform ground(nullptr, Vector2f(1000.0f, 200.0f), Vector2f(500.0f, 500.0f));
 

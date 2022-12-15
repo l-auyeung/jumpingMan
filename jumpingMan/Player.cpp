@@ -68,4 +68,5 @@ void Player::OnCollision(Vector2f direction)
 		velocity.y = 0.0f;
 		//collision on top WE CAN'T HAVE THIS
 	}
+	
 }
